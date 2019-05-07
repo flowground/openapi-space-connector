@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "password": {
+                            "type": "string"
+                        },
+                        "username": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "username",
+                        "password"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "properties": {
+                        "email": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "email"
+                    ],
+                    "type": "object"
+                }
+            ]
+        }
+    }
+}

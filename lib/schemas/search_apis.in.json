@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "required": false,
+            "type": "string",
+            "default": ""
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "default": 10
+        },
+        "offset": {
+            "required": false,
+            "type": "integer",
+            "default": 0
+        },
+        "sort": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NAME",
+                "UPDATED",
+                "CREATED",
+                "OWNER"
+            ],
+            "default": "NAME"
+        },
+        "order": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ],
+            "default": "ASC"
+        }
+    }
+}

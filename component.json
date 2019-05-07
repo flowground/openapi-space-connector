@@ -1,0 +1,292 @@
+{
+    "title": "OpenAPI space",
+    "description": "This is the API for OpenAPI space.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/openapi.space/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://openapi.space/api/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "AuthToken": {
+                "label": "Authorization (AuthToken)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "search_apis": {
+            "main": "./lib/actions/search_apis.js",
+            "title": "Retrieves a list of currently defined APIs in API meta list format.",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/search_apis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_owner_apis": {
+            "main": "./lib/actions/get_owner_apis.js",
+            "title": "Retrieves an API meta listing of all APIs defined for this owner",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_owner_apis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_api": {
+            "main": "./lib/actions/delete_api.js",
+            "title": "Deletes the specified API",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_api.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_versions": {
+            "main": "./lib/actions/get_api_versions.js",
+            "title": "Retrieves an API meta listing for all API versions for this owner and API",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_versions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "save_definition": {
+            "main": "./lib/actions/save_definition.js",
+            "title": "Saves the provided Swagger definition",
+            "description": "Saves the provided Swagger definition; the owner must match the token owner. The version will be extracted from the Swagger definitions itself.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/save_definition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_api_version": {
+            "main": "./lib/actions/delete_api_version.js",
+            "title": "Deletes a particular version of the specified API",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_api_version.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "publish_api_version": {
+            "main": "./lib/actions/publish_api_version.js",
+            "title": "Publish a particular version of the specified API",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/publish_api_version.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_json_definition": {
+            "main": "./lib/actions/get_json_definition.js",
+            "title": "Retrieves the Swagger definition for the specified API and version in JSON format",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_json_definition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_yaml_definition": {
+            "main": "./lib/actions/get_yaml_definition.js",
+            "title": "Retrieves the Swagger definition for the specified API and version in YAML format",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_yaml_definition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "login": {
+            "main": "./lib/actions/login.js",
+            "title": "Log in to OpenAPI space",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/login.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "login_apinf": {
+            "main": "./lib/actions/login_apinf.js",
+            "title": "Log in to OpenAPI space using an APInf account",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/login_apinf.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "login_apinf_token": {
+            "main": "./lib/actions/login_apinf_token.js",
+            "title": "Log in to OpenAPI space using an APInf authentication token",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/login_apinf_token.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "logout": {
+            "main": "./lib/actions/logout.js",
+            "title": "Log out from OpenAPI space",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/logout.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ping": {
+            "main": "./lib/actions/ping.js",
+            "title": "Check whether or not you are authenticated",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ping.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "register": {
+            "main": "./lib/actions/register.js",
+            "title": "Register to OpenAPI space",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/register.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
